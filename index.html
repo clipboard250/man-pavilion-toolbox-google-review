@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0B0B0B" />
   <style>
     :root{
-      --orange:#F57D31; /* DPW Orange vibe */
+      --orange:#F57D31;
       --black:#0B0B0B;
       --text:#F5F5F5;
       --muted:#c7c7c7;
@@ -23,12 +23,10 @@
                   linear-gradient(180deg, var(--black), #000);
       overflow-x:hidden;
     }
-    /* subtle grain */
     body::before{
       content:""; position:fixed; inset:0; pointer-events:none; opacity:.18; mix-blend-mode:soft-light;
       background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 10 10"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2"/></filter><rect width="10" height="10" filter="url(%23n)" opacity=".25"/></svg>');
     }
-
     .wrap{min-height:100dvh; display:grid; place-items:center; padding:24px}
     .card{
       width:min(900px,94vw);
@@ -44,11 +42,9 @@
     .tag{display:inline-flex; gap:.5ch; align-items:center; padding:6px 12px; border-radius:999px;
       font-size:.9rem; color:var(--orange); background:rgba(245,125,49,.10); border:1px solid rgba(245,125,49,.35)}
     .tag-dot{width:8px; height:8px; background:var(--orange); border-radius:50%; box-shadow:0 0 0 6px rgba(245,125,49,.18)}
-
     h1{margin:12px 0 8px; font-size:clamp(2.2rem,5.6vw,4.2rem); line-height:1.02}
     .accent{color:var(--orange); text-shadow:0 0 18px rgba(245,125,49,.25)}
     .sub{color:var(--muted); font-size:clamp(1rem,2.4vw,1.15rem)}
-
     .marquee{margin:28px 0 16px; position:relative; overflow:hidden; height:46px; border-radius:12px;
       border:1px solid rgba(245,125,49,.35); background:rgba(245,125,49,.06)}
     .marquee-track{display:flex; gap:24px; align-items:center; position:absolute; white-space:nowrap;
@@ -57,54 +53,34 @@
       color:var(--text); border-radius:999px; border:1px solid rgba(245,125,49,.4); font-weight:600}
     .chip .dot{width:6px; height:6px; border-radius:50%; background:var(--orange)}
     @keyframes scroll { to { transform: translateX(-50%); } }
-
     .btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
     .btn{cursor:pointer; border:none; font-weight:700; letter-spacing:.02em; border-radius:12px; padding:12px 16px;
       transition:transform .06s ease, box-shadow .2s ease, background .2s ease}
     .btn:active{transform:translateY(1px)}
     .btn.primary{color:#000; background:var(--orange); box-shadow:0 8px 24px rgba(245,125,49,.35)}
     .btn.ghost{color:var(--text); background:transparent; border:1px solid rgba(245,125,49,.35)}
-
-    form{margin-top:18px; display:grid; gap:10px}
-    input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(245,125,49,.35); background:#0f0f0f; color:var(--text)}
-    textarea{min-height:110px; resize:vertical}
-    label{font-size:.95rem; color:var(--muted)}
-
     footer{opacity:.8; font-size:.95rem; margin-top:22px}
     a{color:var(--orange); text-decoration:none} a:hover{text-decoration:underline}
-
     .corner{position:fixed; right:14px; bottom:14px; display:flex; gap:10px; align-items:center; opacity:.9}
     .badge{padding:6px 10px; border-radius:999px; background:rgba(245,125,49,.12); border:1px solid rgba(245,125,49,.4); font-size:.85rem}
-
     .toast{position:fixed; left:50%; top:18px; transform:translateX(-50%); background:#111; color:var(--text);
       border:1px solid rgba(245,125,49,.45); padding:10px 14px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,.45);
       opacity:0; pointer-events:none; transition:opacity .25s ease}
     .toast.show{opacity:1}
-
-    @media (max-width:380px){ .marquee{height:40px} .chip{font-size:.9rem} }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <main class="card" role="main" aria-labelledby="title">
-      <div class="flare" aria-hidden="true"></div>
-
-      <span class="tag"><span class="tag-dot"></span><span id="tagPlace">Thanks for swinging by.</span></span>
-
-      <h1 id="title">Drink <span class="accent" id="verb">water</span>.<br/>Then do <span class="accent" id="thing">legend stuff</span>.</h1>
-
-      <p class="sub" id="sub">
+    <main class="card">
+      <div class="flare"></div>
+      <span class="tag"><span class="tag-dot"></span>Thanks for swinging by.</span>
+      <h1>Drink <span class="accent" id="verb">water</span>.<br/>Then do <span class="accent" id="thing">legend stuff</span>.</h1>
+      <p class="sub">
         This isn’t Google Reviews. It’s your friendly <strong>Man Pavilion Shop Steward Clipboard</strong> whispering:
-        hydrate, sunscreen, label your tools. If you actually want to leave a note, drop it below.
+        hydrate, sunscreen, label your tools. If you want to leave a note, tap below.
       </p>
-
-      <div class="marquee" aria-hidden="true">
+      <div class="marquee">
         <div class="marquee-track" id="belt">
-          <span class="chip"><span class="dot"></span> DRINK WATER</span>
-          <span class="chip"><span class="dot"></span> DON'T FORGET TO GIVE YOUR TOOLS A BLOW JOB</span>
-          <span class="chip"><span class="dot"></span> LABEL YOUR TOOLS</span>
-          <span class="chip"><span class="dot"></span> WEAR YOUR PPE</span>
-          <span class="chip"><span class="dot"></span> EAT A SNACK</span>
           <span class="chip"><span class="dot"></span> DRINK WATER</span>
           <span class="chip"><span class="dot"></span> DON'T FORGET TO GIVE YOUR TOOLS A BLOW JOB</span>
           <span class="chip"><span class="dot"></span> LABEL YOUR TOOLS</span>
@@ -112,56 +88,25 @@
           <span class="chip"><span class="dot"></span> EAT A SNACK</span>
         </div>
       </div>
-
       <div class="btns">
-        <button class="btn primary" id="hydrateBtn" aria-label="Mark hydrated">I hydrated ✅</button>
-        <button class="btn ghost" id="shareBtn" aria-label="Share this">Share this</button>
-        <a class="btn ghost" href="#feedback" aria-label="Jump to feedback">Leave a comment ↓</a>
+        <button class="btn primary" id="hydrateBtn">I hydrated ✅</button>
+        <button class="btn ghost" id="shareBtn">Share this</button>
+        <a class="btn ghost" href="mailto:dayna.himot@burningman.org?subject=Toolbox%20Feedback&body=Hi%20Clipboard," target="_blank">Send a Comment</a>
       </div>
-
-      <!-- Comment form (FormSubmit) -->
-      <form id="feedback" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
-        <input type="hidden" name="_subject" value="Toolbox link feedback">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <!-- Optional redirect after submit: replace with your thanks page if you make one -->
-        <!-- <input type="hidden" name="_next" value="https://YOUR-USERNAME.github.io/toolbox-google-review/thanks.html"> -->
-
-        <label>Nickname (optional)
-          <input name="name" placeholder="Playa name or real name" />
-        </label>
-        <label>Comment
-          <textarea name="message" placeholder="Say hi, request tools, or leave feedback" required></textarea>
-        </label>
-        <label>Email (optional, if you want a reply)
-          <input type="email" name="email" placeholder="you@example.com" />
-        </label>
-        <button class="btn primary" type="submit">Send comment</button>
-      </form>
-
-      <footer id="more">
+      <footer>
         <p class="sub">Tip: add <code>?place=Man%20Pavilion</code> to personalize the tag and page title.</p>
       </footer>
     </main>
   </div>
-
-  <div class="corner" aria-hidden="true">
+  <div class="corner">
     <span class="badge">DPW Orange • #F57D31</span>
     <span class="badge">Black • #0B0B0B</span>
   </div>
-
-  <div id="toast" class="toast" role="status" aria-live="polite">Hydration logged. Proud of you.</div>
-
+  <div id="toast" class="toast">Hydration logged. Proud of you.</div>
   <script>
-    // Personalize via ?place=
     const qs = new URLSearchParams(location.search);
     const place = (qs.get('place') || '').trim();
-    if (place) {
-      document.getElementById('tagPlace').textContent = `Thanks for visiting ${place}.`;
-      document.title = `Drink Water — ${place}`;
-    }
-
-    // Rotate phrases
+    if (place) document.title = `Drink Water — ${place}`;
     const verbs = ['water','electrolytes','actual H2O','some agua','a sip','more water'];
     const things = ['legend stuff','hero work','crew magic','rad builds','safe shenanigans','base glory'];
     const pick = a => a[Math.floor(Math.random()*a.length)];
@@ -169,30 +114,21 @@
       document.getElementById('verb').textContent = pick(verbs);
       document.getElementById('thing').textContent = pick(things);
     }, 2400);
-
-    // Hydrate toast
     const toast = document.getElementById('toast');
     document.getElementById('hydrateBtn').addEventListener('click', ()=>{
-      try { localStorage.setItem('hydratedAt', new Date().toISOString()); } catch(e){}
       toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1600);
     });
-
-    // Share (works over https on GitHub Pages)
     document.getElementById('shareBtn').addEventListener('click', async ()=>{
       const url = location.href.split('#')[0];
-      const text = `Hydrate and carry on. ${place? '('+place+')':''}`;
       if (navigator.share) {
-        try { await navigator.share({ title: document.title, text, url }); } catch(e){}
+        try { await navigator.share({ title: document.title, text: 'Hydrate and carry on.', url }); } catch(e){}
       } else {
-        try { await navigator.clipboard.writeText(url); } catch(e){}
+        await navigator.clipboard.writeText(url);
         toast.textContent = 'Link copied.'; toast.classList.add('show');
         setTimeout(()=>{ toast.classList.remove('show'); toast.textContent='Hydration logged. Proud of you.' }, 1400);
       }
     });
-
-    // Seamless marquee loop
-    const belt = document.getElementById('belt');
-    belt.innerHTML += belt.innerHTML;
+    document.getElementById('belt').innerHTML += document.getElementById('belt').innerHTML;
   </script>
 </body>
 </html>
