@@ -76,14 +76,19 @@
       <span class="tag"><span class="tag-dot"></span>Thanks for swinging by.</span>
       <h1>Drink <span class="accent" id="verb">water</span>.<br/>Then do <span class="accent" id="thing">legend stuff</span>.</h1>
       <p class="sub">
-        This isn’t Google Reviews. It’s your friendly <strong>Man Pavilion Shop Steward Clipboard</strong> whispering:
-        hydrate, sunscreen, label your tools. If you want to leave a note, tap below.
+        Oh, you thought this was a Google review?<br>
+        Google reviews are for normies.<br>
+        This is Clipboard showing you some love.<br>
+        Thanks for all you do.
       </p>
       <div class="marquee">
         <div class="marquee-track" id="belt">
           <span class="chip"><span class="dot"></span> DRINK WATER</span>
           <span class="chip"><span class="dot"></span> DON'T FORGET TO GIVE YOUR TOOLS A BLOW JOB</span>
-          <span class="chip"><span class="dot"></span> LABEL YOUR TOOLS</span>
+          <span class="chip"><span class="dot"></span> WEAR YOUR PPE</span>
+          <span class="chip"><span class="dot"></span> EAT A SNACK</span>
+          <span class="chip"><span class="dot"></span> DRINK WATER</span>
+          <span class="chip"><span class="dot"></span> DON'T FORGET TO GIVE YOUR TOOLS A BLOW JOB</span>
           <span class="chip"><span class="dot"></span> WEAR YOUR PPE</span>
           <span class="chip"><span class="dot"></span> EAT A SNACK</span>
         </div>
@@ -93,9 +98,6 @@
         <button class="btn ghost" id="shareBtn">Share this</button>
         <a class="btn ghost" href="mailto:dayna.himot@burningman.org?subject=Toolbox%20Feedback&body=Hi%20Clipboard," target="_blank">Send a Comment</a>
       </div>
-      <footer>
-        <p class="sub">Tip: add <code>?place=Man%20Pavilion</code> to personalize the tag and page title.</p>
-      </footer>
     </main>
   </div>
   <div class="corner">
@@ -104,9 +106,6 @@
   </div>
   <div id="toast" class="toast">Hydration logged. Proud of you.</div>
   <script>
-    const qs = new URLSearchParams(location.search);
-    const place = (qs.get('place') || '').trim();
-    if (place) document.title = `Drink Water — ${place}`;
     const verbs = ['water','electrolytes','actual H2O','some agua','a sip','more water'];
     const things = ['legend stuff','hero work','crew magic','rad builds','safe shenanigans','base glory'];
     const pick = a => a[Math.floor(Math.random()*a.length)];
